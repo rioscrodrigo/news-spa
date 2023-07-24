@@ -7,5 +7,6 @@ export class News {
   news_site: string;
   published_at: Date;
   updated_at: Date;
+  formatted_published_at: string;
   published: boolean;
 }
