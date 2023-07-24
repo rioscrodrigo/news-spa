@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
+import { BreakingNewsComponent } from './breaking-news/breaking-news.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, NewsComponent, UsersComponent, HeaderComponent],
+  declarations: [AppComponent, NewsComponent, UsersComponent, HeaderComponent, BreakingNewsComponent, FooterComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

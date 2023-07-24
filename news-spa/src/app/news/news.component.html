@@ -1,37 +1,37 @@
-<div class="container">
-  <div class="card">
-    <div class="card-body">
-      <div
-        *ngFor="let news of newsList"
-        class="position-relative overflow-hidden"
-        style="height: 300px"
-      >
-        <img
-          class="img-fluid h-100"
-          src="{{ news.image_url }}"
-          style="object-fit: cover"
-          alt=""
-        />
-        <div class="overlay">
-          <div class="mb-2">
-            <a
-              class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-              href=""
-            >
-              <td>{{ news.title }}</td>
-            </a>
-            <a class="text-white" href=""
-              ><small>{{ news.formatted_published_at }}</small>
-            </a>
-          </div>
-          <a
-            class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
-            href=""
-            >{{ news.summary }}</a
-          >
-        </div>
-        <div>{{ news.id }}</div>
+<div class="section-title">
+  <h4 class="m-0 text-uppercase font-weight-bold">Featured News</h4>
+</div>
+
+<div class="card">
+  <div
+    *ngFor="let news of newsList"
+    class="position-relative overflow-hidden"
+    style="height: 300px"
+  >
+    <img
+      class="img-fluid h-100"
+      src="{{ news.image_url }}"
+      style="object-fit: cover"
+      alt=""
+    />
+    <div class="overlay">
+      <div class="mb-2">
+        <a
+          class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+          href="{{ news.url }}"
+        >
+          <td>{{ news.title }}</td>
+        </a>
+        <a class="text-white"
+          ><small>{{ news.formatted_published_at }}</small>
+        </a>
       </div>
+      <a
+        class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
+        href="{{ news.url }}"
+        >{{ news.summary }}</a
+      >
     </div>
+    <div>{{ news.id }}</div>
   </div>
 </div>
