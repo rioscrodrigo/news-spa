@@ -26,4 +26,13 @@ export class NewsService {
       body: {},
     });
   }
+
+  deleteFavorite(userId: number, newsId: number) {
+    return this.http.delete(
+      `${this.favoriteUrl}${userId}${this.api}${newsId}`,
+      {
+        body: {},
+      }
+    );
+  }
 }

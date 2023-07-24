@@ -23,7 +23,6 @@ export class NewsComponent implements OnInit {
     });
 
     this.newsService.getFavorites(1).subscribe((data: News[]) => {
-      console.log(data);
       this.favoriteList = data;
       this.favoriteList.forEach((favorite) => {
         this.favoriteIdList.push(favorite.id);
@@ -32,7 +31,13 @@ export class NewsComponent implements OnInit {
   }
 
   postFavorite(userId: number, newsId: number): any {
-    console.log('button pressed:');
     this.newsService.postFavorite(userId, newsId).subscribe();
+    this.favoriteIdList.push(newsId);
+  }
+
+  deleteFavorite(userId: number, newsId: number): any {
+    this.newsService.deleteFavorite(userId, newsId).subscribe();
+    const index: number = this.favoriteIdList.indexOf(newsId);
+    this.favoriteIdList.splice(index, 1);
   }
 }

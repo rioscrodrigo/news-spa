@@ -17,25 +17,31 @@
 
     <div class="overlay">
       <div>
-        <a role="button" class="text-white" (click)="postFavorite(1, news.id)"
-          >Añadir a Favorito</a
+        <a
+          role="button"
+          (click)="
+            favoriteIdList.includes(news.id)
+              ? deleteFavorite(1, news.id)
+              : postFavorite(1, news.id)
+          "
         >
-        <img
-          *ngIf="favoriteIdList.includes(news.id); else elseBlock"
-          class="img-fluid h-100"
-          src="../assets/img/icons8-star-48-filled.png"
-          style="object-fit: cover"
-          alt=""
-        />
-
-        <ng-template #elseBlock>
           <img
+            *ngIf="favoriteIdList.includes(news.id); else elseBlock"
             class="img-fluid h-100"
-            src="../assets/img/icons8-star-48.png"
+            src="../assets/img/icons8-star-48-filled.png"
             style="object-fit: cover"
             alt=""
           />
-        </ng-template>
+
+          <ng-template #elseBlock>
+            <img
+              class="img-fluid h-100"
+              src="../assets/img/icons8-star-48.png"
+              style="object-fit: cover"
+              alt=""
+            />
+          </ng-template>
+        </a>
       </div>
       <div class="mb-2">
         <a
