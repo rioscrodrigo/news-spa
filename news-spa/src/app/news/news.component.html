@@ -14,7 +14,29 @@
       style="object-fit: cover"
       alt=""
     />
+
     <div class="overlay">
+      <div>
+        <a role="button" class="text-white" (click)="postFavorite(1, news.id)"
+          >Añadir a Favorito</a
+        >
+        <img
+          *ngIf="favoriteIdList.includes(news.id); else elseBlock"
+          class="img-fluid h-100"
+          src="../assets/img/icons8-star-48-filled.png"
+          style="object-fit: cover"
+          alt=""
+        />
+
+        <ng-template #elseBlock>
+          <img
+            class="img-fluid h-100"
+            src="../assets/img/icons8-star-48.png"
+            style="object-fit: cover"
+            alt=""
+          />
+        </ng-template>
+      </div>
       <div class="mb-2">
         <a
           class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -32,6 +54,5 @@
         >{{ news.summary }}</a
       >
     </div>
-    <div>{{ news.id }}</div>
   </div>
 </div>

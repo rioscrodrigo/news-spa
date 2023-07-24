@@ -9,14 +9,30 @@ import { NewsService } from './news.service';
 })
 export class NewsComponent implements OnInit {
   newsList: News[];
+  favoriteList: News[];
+  favoriteIdList: number[];
   constructor(private newsService: NewsService) {
     this.newsList = [];
+    this.favoriteList = [];
+    this.favoriteIdList = [];
   }
 
   ngOnInit(): void {
     this.newsService.getNews().subscribe((data: News[]) => {
-      console.log(data);
       this.newsList = data;
     });
+
+    this.newsService.getFavorites(1).subscribe((data: News[]) => {
+      console.log(data);
+      this.favoriteList = data;
+      this.favoriteList.forEach((favorite) => {
+        this.favoriteIdList.push(favorite.id);
+      });
+    });
+  }
+
+  postFavorite(userId: number, newsId: number): any {
+    console.log('button pressed:');
+    this.newsService.postFavorite(userId, newsId).subscribe();
   }
 }
